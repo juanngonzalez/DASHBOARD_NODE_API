@@ -4,6 +4,7 @@ import connectionDB from "./connectionDB/connectionDB.js";
 import "dotenv/config.js";
 import cors from "cors";
 import roleSeed from "./seed/roleSeed.js";
+import serverless from "serverless-http";
 const port = process.env.SERVER_PORT;
 const app = express();
 
@@ -16,15 +17,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Middlewares de rutas
-app.use(routes);
+app.use(`/.netlify/functions/api`,routes);
 app.get('/', (req,res) => {
   res.send('Welcome')
 })
+
 await connectionDB
   .sync({ force: false })
   .then(() => {
-    app.listen(port, () => {
+    serverless(app.listen(port, () => {
       console.log("server ok http://localhost:8080");
-    });
+    }))
   }).then(roleSeed);
-
