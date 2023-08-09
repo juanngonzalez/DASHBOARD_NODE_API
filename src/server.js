@@ -17,7 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middlewares de rutas
 app.use(routes);
-
+app.get('/', (req,res) => {
+  res.send('Welcome')
+})
 await connectionDB
   .sync({ force: false })
   .then(() => {
