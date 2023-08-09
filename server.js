@@ -5,7 +5,7 @@ import "dotenv/config.js";
 import cors from "cors";
 import roleSeed from "./src/seed/roleSeed.js";
 import serverless from "serverless-http";
-const port = process.env.SERVER_PORT || 8080;
+const port = process.env.PORT || 8080;
 const app = express();
 
 // Allow requests only from a specific frontend domain
@@ -25,7 +25,7 @@ app.get('/', (req,res) => {
 await connectionDB
   .sync({ force: false })
   .then(() => {
-    serverless(app.listen(port, () => {
+    serverless(app.listen(port, "0.0.0.0", () => {
       console.log("server ok", port);
     }))
   }).then(roleSeed);
