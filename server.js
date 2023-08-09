@@ -12,7 +12,6 @@ const app = express();
 
 
 // Apply CORS middleware with options
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
