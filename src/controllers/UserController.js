@@ -1,4 +1,4 @@
-import { UserDTO, RoleDTO } from "../../models/createModels.js";
+import { UserDTO, RoleDTO } from "../models/createModels.js";
 
 class UserController {
   constructor() {}

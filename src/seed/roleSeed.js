@@ -1,4 +1,4 @@
-import  RoleDTO  from "../../models/RoleDTO.js";
+import  RoleDTO  from "../models/RoleDTO.js";
 
 const roleSeed = async () => {
   try {

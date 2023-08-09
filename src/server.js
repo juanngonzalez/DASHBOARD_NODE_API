@@ -1,9 +1,9 @@
 import express from "express";
-import routes from "./src/routes/routes.js";
+import routes from "./routes/routes.js";
 import connectionDB from "./connectionDB/connectionDB.js";
 import "dotenv/config.js";
 import cors from "cors";
-import roleSeed from "./src/seed/roleSeed.js";
+import roleSeed from "./seed/roleSeed.js";
 const port = process.env.SERVER_PORT;
 const app = express();
 
