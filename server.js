@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Middlewares de rutas
-app.use(`/`,routes);
+app.use(routes);
 app.get('/', (req,res) => {
   res.send('Welcome')
 })
